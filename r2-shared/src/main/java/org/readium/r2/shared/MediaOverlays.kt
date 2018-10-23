@@ -18,6 +18,10 @@ class MediaOverlays(private var nodes: MutableList<MediaOverlayNode> = mutableLi
         return clip
     }
 
+    fun getMediaOverlaysNodes(): MutableList<MediaOverlayNode>? {
+        return nodes;
+    }
+
     private fun nodeForFragment(id: String?): MediaOverlayNode {
         findNode(id, this.nodes)?.let { return it } ?: throw Exception("Node not found")
     }
