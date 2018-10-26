@@ -19,6 +19,8 @@ import java.net.URL
 //  A link to a resource
 class Link : JSONable, Serializable {
     //  The link destination
+    var id: String? = null
+    //  The link destination
     var href: String? = null
     /// MIME type of resource.
     var typeLink: String? = null
@@ -50,6 +52,7 @@ class Link : JSONable, Serializable {
 
     override fun getJSON(): JSONObject {
         val json = JSONObject()
+        json.putOpt("href", id)
         json.putOpt("title", title)
         json.putOpt("type", typeLink)
         json.putOpt("href", href)
@@ -74,6 +77,9 @@ enum class LinkError(var v: String) {
 
 fun parseLink(linkDict: JSONObject, feedUrl: URL? = null): Link {
     val link = Link()
+    if (linkDict.has("id")) {
+        link.id = linkDict.getString("id")
+    }
     if (linkDict.has("title")) {
         link.title = linkDict.getString("title")
     }
