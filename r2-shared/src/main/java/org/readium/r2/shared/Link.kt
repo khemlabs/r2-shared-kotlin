@@ -21,6 +21,8 @@ class Link : JSONable, Serializable {
     //  The link destination
     var id: String? = null
     //  The link destination
+    var idref: String? = null
+    //  The link destination
     var href: String? = null
     /// MIME type of resource.
     var typeLink: String? = null
@@ -52,7 +54,8 @@ class Link : JSONable, Serializable {
 
     override fun getJSON(): JSONObject {
         val json = JSONObject()
-        json.putOpt("href", id)
+        json.putOpt("id", id)
+        json.putOpt("idref", idref)
         json.putOpt("title", title)
         json.putOpt("type", typeLink)
         json.putOpt("href", href)
@@ -79,6 +82,9 @@ fun parseLink(linkDict: JSONObject, feedUrl: URL? = null): Link {
     val link = Link()
     if (linkDict.has("id")) {
         link.id = linkDict.getString("id")
+    }
+    if (linkDict.has("idref")) {
+        link.id = linkDict.getString("idref")
     }
     if (linkDict.has("title")) {
         link.title = linkDict.getString("title")
