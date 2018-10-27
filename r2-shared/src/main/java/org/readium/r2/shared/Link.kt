@@ -84,7 +84,7 @@ fun parseLink(linkDict: JSONObject, feedUrl: URL? = null): Link {
         link.id = linkDict.getString("id")
     }
     if (linkDict.has("idref")) {
-        link.id = linkDict.getString("idref")
+        link.idref = linkDict.getString("idref")
     }
     if (linkDict.has("title")) {
         link.title = linkDict.getString("title")
