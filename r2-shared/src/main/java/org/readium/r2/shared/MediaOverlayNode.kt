@@ -19,7 +19,7 @@ class Clip {
     var duration: Double? = null
 }
 
-class MediaOverlayNode(var text: String? = null, private var audio: String? = null) {
+class MediaOverlayNode(var text: String? = null, var audio: String? = null) {
 
     var role: MutableList<String> = mutableListOf()
     var children: MutableList<MediaOverlayNode> = mutableListOf()
