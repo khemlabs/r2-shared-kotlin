@@ -12,7 +12,7 @@ package org.readium.r2.shared
 import java.net.URL
 
 class Clip {
-    var relativeUrl: URL? = null
+    var relativeUrl: String? = null
     var fragmentId: String? = null
     var start: Double? = null
     var end: Double? = null
@@ -34,7 +34,7 @@ class MediaOverlayNode(var text: String? = null, var audio: String? = null) {
 
         val audioString = this.audio ?: throw Exception("audio")
         val audioFileString = audioString.split('#').first()
-        val audioFileUrl = URL(audioFileString)
+        val audioFileUrl = audioFileString
 
         newClip.relativeUrl = audioFileUrl
         val times = audioString.split('#').last()
