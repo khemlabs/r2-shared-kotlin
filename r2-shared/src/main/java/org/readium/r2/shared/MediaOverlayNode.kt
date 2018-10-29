@@ -47,12 +47,12 @@ class MediaOverlayNode(var text: String? = null, var audio: String? = null) {
         //  Remove "t=" prefix
         val netTimes = times.removeRange(0, 2)
         val start = try {
-            netTimes.split(',').first()
+            netTimes.split(',').first().split('m').first()
         } catch (e: Exception) {
             null
         }
         val end = try {
-            netTimes.split(',').last()
+            netTimes.split(',').last().split('m').first()
         } catch (e: Exception) {
             null
         }
