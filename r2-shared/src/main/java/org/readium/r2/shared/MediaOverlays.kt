@@ -9,7 +9,11 @@
 
 package org.readium.r2.shared
 
-class MediaOverlays(private var nodes: MutableList<MediaOverlayNode> = mutableListOf()) {
+import android.os.Parcel
+import android.os.Parcelable
+import java.io.Serializable
+
+class MediaOverlays(private var nodes: MutableList<MediaOverlayNode> = mutableListOf()) : Serializable {
 
     fun clip(id: String): Clip {
         val clip: Clip

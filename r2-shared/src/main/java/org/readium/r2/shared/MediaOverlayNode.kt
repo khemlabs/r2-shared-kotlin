@@ -9,6 +9,7 @@
 
 package org.readium.r2.shared
 
+import java.io.Serializable
 import java.net.URL
 
 class Clip {
@@ -19,7 +20,7 @@ class Clip {
     var duration: Double? = null
 }
 
-class MediaOverlayNode(var text: String? = null, var audio: String? = null) {
+class MediaOverlayNode(var text: String? = null, var audio: String? = null) : Serializable {
 
     var role: MutableList<String> = mutableListOf()
     var children: MutableList<MediaOverlayNode> = mutableListOf()
