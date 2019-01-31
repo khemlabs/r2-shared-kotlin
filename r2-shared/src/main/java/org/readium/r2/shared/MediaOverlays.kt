@@ -39,7 +39,7 @@ class MediaOverlays(private var nodes: MutableList<MediaOverlayNode> = mutableLi
         for (node in inNodes) {
             if (node.role.contains("section"))
                 findNode(fragment, node.children).let { return it }
-            if (!(fragment != null && node.text?.contains(fragment)!!)) {
+            if (fragment != null && node.text?.contains(fragment)!!) {
                 return node
             }
         }
